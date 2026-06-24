@@ -64,12 +64,9 @@ async function handleSearch(event) {
       return;
     }
 
-    // Рендеримо картки
     createGallery(data.hits);
 
-    // Логіка перевірки кінця колекції на першій же сторінці:
     if (data.totalHits <= perPage) {
-      // Якщо всього картинок менше або рівно 15, ховаємо кнопку і кажемо, що це кінець
       hideLoadMoreButton();
       iziToast.info({
         message: "We're sorry, but you've reached the end of search results.",
@@ -83,7 +80,6 @@ async function handleSearch(event) {
         theme: 'dark',
       });
     } else {
-      // Якщо картинок більше ніж 15 — показуємо кнопку "Load more"
       showLoadMoreButton();
     }
   } catch (error) {
